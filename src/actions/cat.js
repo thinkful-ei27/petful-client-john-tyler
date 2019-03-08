@@ -13,9 +13,9 @@ export const fetchCatSuccess = (data) => ({
 })
 
 export const FETCH_CAT_ERROR = 'FETCH_CAT_ERROR'
-export const fetchCatError = (error) => ({
-  type: FETCH_CAT_SUCCESS,
-  error
+export const fetchCatError = (error1) => ({
+  type: FETCH_CAT_ERROR,
+  error1
 })
 
 export const ADOPT_CAT_REQUEST = 'ADOPT_CAT_REQUEST'
@@ -50,7 +50,8 @@ export const fetchCat = () => dispatch => {
       return dispatch(fetchCatSuccess(cat));
     })
     .catch(err => {
-      const { message } = err.response.data;
+      console.log(err);
+      const message = 'this is an error message';
       return dispatch(fetchCatError(message));
     })
 }

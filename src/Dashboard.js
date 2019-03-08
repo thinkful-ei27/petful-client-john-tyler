@@ -13,8 +13,24 @@ class Dashboard extends React.Component {
   render() {
     const {catToAdopt, dogToAdopt} = this.props;
     let content;
-    if (this.props.catToAdopt === null || this.props.dogToAdopt === null) {
+    if (this.props.catLoading === true || this.props.dogLoading === true) {
       content = <div>Loading...</div>
+    } else if (catToAdopt === null && dogToAdopt === null) {
+      content = <div>Everything adopted!</div>
+    } else if (catToAdopt === null) {
+      content = (
+        <>
+          <div>All cats adopted!</div>
+          <Pet pet={dogToAdopt} onAdoptPet={() => this.props.dispatch(adoptDog())} />
+        </>
+      )
+    } else if (dogToAdopt === null) {
+      content = (
+        <>
+          <Pet pet={catToAdopt} onAdoptPet={() => this.props.dispatch(adoptCat())} />
+          <div>All dogs adopted!</div>
+        </>
+      )
     } else {
       content = (
         <>
@@ -35,7 +51,8 @@ const mapStateToProps = state => {
   return {
     catToAdopt: state.cat.data,
     dogToAdopt: state.dog.data,
-    loading: state.loading
+    catLoading: state.cat.loading,
+    dogLoading: state.dog.loading,
   }
 }
 

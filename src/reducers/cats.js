@@ -29,7 +29,7 @@ export default function reducer(state=initialState, action) {
   if (action.type === FETCH_CAT_ERROR) {
     return Object.assign({}, state, {
       loading: false,
-      error: action.error
+      error: action.error1
     })
   }
   if (action.type === ADOPT_CAT_REQUEST) {

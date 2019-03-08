@@ -14,7 +14,7 @@ export const fetchDogSuccess = (data) => ({
 
 export const FETCH_DOG_ERROR = 'FETCH_DOG_ERROR'
 export const fetchDogError = (error) => ({
-  type: FETCH_DOG_SUCCESS,
+  type: FETCH_DOG_ERROR,
   error
 })
 

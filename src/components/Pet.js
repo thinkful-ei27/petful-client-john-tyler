@@ -7,8 +7,8 @@ export default function Pet(props) {
     if (animal[0] === 'sex' || animal[0] === 'age' || animal[0] === 'breed' || animal[0] === 'story') {
       return (
       <>
-        <dt>{animal[0]}</dt>
-        <dd>{animal[1]}</dd>
+        <dt className='uppercase font-bold'>{animal[0]}</dt>
+        <dd className='pb-2'>{animal[1]}</dd>
       </>
       )
     }
@@ -17,13 +17,13 @@ export default function Pet(props) {
     <section className='pet'>
     <header>
       <h1>{name}</h1>
-      <img src={imageURL} alt={imageDescription} />
+      <img className='w-64' src={imageURL} alt={imageDescription} />
     </header>
     <main>
       <dl>
         {attributes(pet)}
       </dl>
-      <button onClick={onAdoptPet}>Adopt</button>
+      <button onClick={onAdoptPet} className='bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded'>Adopt</button>
     </main>  
   </section>
   )

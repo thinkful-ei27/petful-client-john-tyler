@@ -34,14 +34,20 @@ class Dashboard extends React.Component {
     } else {
       content = (
         <>
-          <Pet pet={catToAdopt} onAdoptPet={() => this.props.dispatch(adoptCat())} />
-          <Pet pet={dogToAdopt} onAdoptPet={() => this.props.dispatch(adoptDog())} />
+          <Pet className='float-right' pet={catToAdopt} onAdoptPet={() => this.props.dispatch(adoptCat())} />
+          <Pet className='float-left' pet={dogToAdopt} onAdoptPet={() => this.props.dispatch(adoptDog())} />
         </>
       )
     }
     return (
-      <div>
-        {content}
+      <div className='container mx-auto'>
+        <header className='mt-16 mb-16 text-center'>
+          <h1>Petful</h1>
+          <h2>A place to adopt your next best friend!</h2>
+        </header>
+        <div className='flex flex-row justify-around content-center' >
+          {content}
+        </div>
       </div>
     )
   }

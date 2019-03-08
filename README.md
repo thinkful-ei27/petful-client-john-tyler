@@ -1,7 +1,7 @@
 <h1 align="center"> 
   <br>
   <a href="https://mighty-reaches-16597.herokuapp.com/">
-    <img src="./src/static/dog.svg" width="200" height="200">
+    <img src="./src/static/Dog.svg" width="200" height="200">
   </a>
   <br>
   Petful

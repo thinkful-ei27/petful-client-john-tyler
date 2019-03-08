@@ -12,6 +12,12 @@
   A place to find your next best friend!
 </h4>
 
+## Description
+
+Petful is an app for an animal shelter that makes it easy to adopt a new cat or dog.
+
+The adoption process works strictly on a first-in, first-out basis. People can adopt a cat, or a dog, or both, but they may only adopt the animals that have been in the shelter the longest.
+
 ## The Stack
 
 ### Front-end

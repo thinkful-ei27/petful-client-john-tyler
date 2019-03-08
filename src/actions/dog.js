@@ -18,6 +18,22 @@ export const fetchDogError = (error) => ({
   error
 })
 
+export const ADOPT_DOG_REQUEST = 'ADOPT_DOG_REQUEST'
+export const adoptDogRequest = () => ({
+  type: ADOPT_DOG_REQUEST
+})
+
+export const ADOPT_DOG_SUCCESS = 'ADOPT_DOG_SUCCESS'
+export const adoptDogSuccess = () => ({
+  type: ADOPT_DOG_SUCCESS,
+})
+
+export const ADOPT_DOG_ERROR = 'ADOPT_DOG_ERROR'
+export const adoptDogError = (error) => ({
+  type: ADOPT_DOG_SUCCESS,
+  error
+})
+
 export const fetchDog = () => dispatch => {
   dispatch(fetchDogRequest());
   const config = {
@@ -36,5 +52,27 @@ export const fetchDog = () => dispatch => {
     .catch(err => {
       const { message } = err.response.data;
       return dispatch(fetchDogError(message));
+    })
+}
+
+export const adoptDog = () => dispatch => {
+  dispatch(adoptDogRequest());
+  const config = {
+    method: 'delete',
+    url: `${API_BASE_URL}/api/dog`,
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  };
+  return axios(config)
+    .then(res => {
+      return dispatch(adoptDogSuccess());
+    })
+    .then(() => {
+      return dispatch(fetchDog());
+    })
+    .catch(err => {
+      const { message } = err.response.data;
+      return dispatch(adoptDogError(message));
     })
 }

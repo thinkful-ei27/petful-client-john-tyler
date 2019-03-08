@@ -2,7 +2,7 @@ import React from 'react'
 import Pet from './components/Pet';
 import { connect } from 'react-redux';
 import {fetchCat, adoptCat} from './actions/cat';
-import {fetchDog} from './actions/dog';
+import {fetchDog, adoptDog} from './actions/dog';
 
 class Dashboard extends React.Component {
   componentDidMount() {
@@ -19,7 +19,7 @@ class Dashboard extends React.Component {
       content = (
         <>
           <Pet pet={catToAdopt} onAdoptPet={() => this.props.dispatch(adoptCat())} />
-          <Pet pet={dogToAdopt} onAdoptPet={() => console.log('temp')} />
+          <Pet pet={dogToAdopt} onAdoptPet={() => this.props.dispatch(adoptDog())} />
         </>
       )
     }
